@@ -1,0 +1,75 @@
+.NavBar {
+  position: fixed;
+  height: 60px;
+  background:#0a2c46;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  color: white;
+  text-decoration: none;
+  box-shadow: 0px 3px 6px #0a2c469d;
+  border-radius: 4px;
+}
+.NavBar--logo a:hover {
+  cursor: pointer;
+}
+.NavBar--nav {
+  display: flex;
+  text-decoration: none;
+  list-style: none;
+  justify-content: space-evenly;
+}
+.NavBar--nav a {
+  cursor: pointer;
+  margin: 8px;
+}
+.NavBar--nav a:hover,
+.NavBar--nav a:active,
+.NavBar--nav a:focus {
+  color: #f7941d;
+}
+.NavBar--button {
+  cursor: pointer;
+  background: transparent;
+  border: none;
+}
+.NavBar--button:focus {
+  border: 1px solid #f7941d;
+  padding: 10px;
+}
+.bar1, .bar2, .bar3 {
+  width: 30px;
+  height: 2px;
+  background-color: white;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+.change .bar1 {
+  -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+  transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+.change .bar2 {opacity: 0;}
+
+.change .bar3 {
+  -webkit-transform: rotate(45deg) translate(-8px, -8px);
+  transform: rotate(45deg) translate(-8px, -8px);
+}
+
+@media only screen and (min-width: 600px) {
+  .NavBar {
+    padding: 0 5rem;
+  }
+  .NavBar--nav a {
+    padding: 0 1.1rem;
+  }
+}
+
+@media only screen and (min-width: 1366px) {
+  .NavBar {
+    padding: 0 12rem;
+  }
+}
