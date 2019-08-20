@@ -12,13 +12,12 @@ export default function NavBar(props) {
   const size = useWindowSize();
   const [navMenuOpen, setNavMenuOpen] = useState(false);
   const {pages} = props;
-  const [showOverlay, setShowOverlay] = useState(false);
-  const overlayTransitions = useTransition(showOverlay, null, {
+  const [showNavMenu, setShowNavMenu] = useState(false);
+  const overlayTransitions = useTransition(showNavMenu, null, {
     from: { opacity: 0 },
     enter: { opacity: 1 },
     leave: { opacity: 0 }
   });
-  const [showNavMenu, setShowNavMenu] = useState(false);
   const navMenuTransitions = useTransition(showNavMenu, null, {
     from: { transform: 'translate3d(40%, 100%, 0' },
     enter: { transform: 'translate3d(0, 0, 0)' },
@@ -28,16 +27,14 @@ export default function NavBar(props) {
 
   function toggleNavMenu() {
     if (!navMenuOpen) {
-      setNavMenuOpen(true);
-      setShowOverlay(true);
       setShowNavMenu(true);  
+      setNavMenuOpen(true);
     }
     if(navMenuOpen) {
-      setShowOverlay(false);
       setShowNavMenu(false);
       setTimeout(() => {
         setNavMenuOpen(false)
-      }, 1000);  
+      }, 800);  
     }
   }
 
