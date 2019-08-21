@@ -11,6 +11,7 @@
   text-decoration: none;
   box-shadow: 0px 3px 6px #0a2c469d;
   border-radius: 4px;
+  z-index: 3;
 }
 .NavBar--logo a:hover {
   cursor: pointer;

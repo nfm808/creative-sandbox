@@ -2,16 +2,17 @@
   height: calc(40vh - 55px);
   width: 40%;
   background: #0a2c46;
-  position: absolute;
+  position: fixed;
   right: 0;
   top: 60px;
-  z-index: 1;
+  z-index: 10;
   display: flex;
   align-items: center;
   text-align: center;
   border-radius: 4px;
   box-shadow: 0px 3px 6px #0a2c469d;
-  will-change: width, height;
+  will-change: translate3d;
+  overflow: hidden;
 }
 .NavMenu--ul {
   height: 100%;

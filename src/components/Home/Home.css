@@ -1,0 +1,8 @@
+.Home {
+  padding-top: 55px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: lightgray;
+  z-index: 0;
+}

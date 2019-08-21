@@ -51,12 +51,12 @@ export default function NavBar(props) {
       )
     } 
     if (navMenuOpen) { return (
-      <button className='NavBar--button' type='button' onClick={() => toggleNavMenu() }>
+      <button aria-label="Open the navigation menu" className='NavBar--button' type='button' onClick={() => toggleNavMenu() }>
           <MdClose size={20} color="f7941d"/>
       </button>
     )}
     return (
-      <button className='NavBar--button' type='button' onClick={() => toggleNavMenu() }>
+      <button aria-label="Open the navigation menu" className='NavBar--button' type='button' onClick={() => toggleNavMenu() }>
         <MdMenu size={20} color="white" />
       </button>
     )
