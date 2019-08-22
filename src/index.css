@@ -2,8 +2,50 @@
   box-sizing: border-box;
   text-decoration: none;
   list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
-
+html {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  font-size: 16px;
+  line-height: 23px;
+  background: gainsboro;
+  z-index: 0;
+}
+.article {
+  font-size: 1em;
+  line-height: 1.27777778em;
+  max-width: 560px;
+}
+h1 {
+  font-size: 2.61111111em;
+  line-height: 1.46808511em;
+  margin-bottom: 0em;
+}
+h2 {
+  font-size: 1.61111111em;
+  line-height: 1.5862069em;
+  margin-bottom: 0em;
+}
+h3 {
+  font-size: 1em;
+  line-height: 1.27777778em;
+  margin-bottom: 0em;
+}
+h4 {
+  font-size: 1em;
+  line-height: 1.27777778em;
+  margin-bottom: 0em;
+}
+p, ul, ol, pre, table, blockquote {
+  margin-top: 0em;
+}
+ul ul, ol ol, ul ol, ol ul {
+  margin-top: 0em;
+  margin-bottom: 0em;
+}
 a {
   color: white;
 }

@@ -12,29 +12,18 @@ export default function NavBar(props) {
   const size = useWindowSize();
   const [navMenuOpen, setNavMenuOpen] = useState(false);
   const {pages} = props;
-  const [showNavMenu, setShowNavMenu] = useState(false);
-  const overlayTransitions = useTransition(showNavMenu, null, {
-    from: { opacity: 0 },
-    enter: { opacity: 1 },
-    leave: { opacity: 0 }
+  const overlayTransitions = useTransition(navMenuOpen, null, {
+    from: { opacity: 1,  transform: 'translate(100%, 0)' },
+    enter: { opacity: 1,  transform: 'translate(-100%, 0)' },
+    leave: { opacity: 1,  transform: 'translate(100%, 0)' }
   });
-  const navMenuTransitions = useTransition(showNavMenu, null, {
-    from: { transform: 'translate3d(40%, 100%, 0' },
-    enter: { transform: 'translate3d(0, 0, 0)' },
-    leave: { transform: 'translate3d(40%, 100%, 0)' }
-  });
-
 
   function toggleNavMenu() {
     if (!navMenuOpen) {
-      setShowNavMenu(true);  
       setNavMenuOpen(true);
     }
     if(navMenuOpen) {
-      setShowNavMenu(false);
-      setTimeout(() => {
-        setNavMenuOpen(false)
-      }, 800);  
+      setNavMenuOpen(false)
     }
   }
 
@@ -68,16 +57,10 @@ export default function NavBar(props) {
         {overlayTransitions.map(({ item, key, props }) => item &&
           <animated.div
             key={key}
-            style={props}
+            style={{...props, position: 'absolute', background: 'transparent', minHeight: '100vh', minWidth: '100vw', zIndex: '3'}}
           >        
-            <Overlay clickClose={toggleNavMenu} />
-          </animated.div>
-        )}
-        {navMenuTransitions.map(({ item, key, props }) => item &&
-          <animated.div 
-            key={key}
-            style={props}
-          >
+            <Overlay clickClose={toggleNavMenu} >
+            </Overlay>
             <NavMenu 
               pages={pages} 
               clickClose={toggleNavMenu}
@@ -95,7 +78,7 @@ export default function NavBar(props) {
         </div>
         {renderNav()}
       </header>
-      {(navMenuOpen && size.width < '769' )&& renderNavMenu()}
+      {(size.width < '769' )&& renderNavMenu()}
     </>
   )
 }

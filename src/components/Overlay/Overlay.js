@@ -13,7 +13,9 @@ export default function Overlay(props) {
       <div 
         onClick={() => exit()}
         className="Overlay"
-        style={{background: `${renderShade()}`}}
-      />
+        style={{background: `${renderShade()}`, zIndex: 4}}
+      >
+        {props.children}
+      </div>
   )
 }

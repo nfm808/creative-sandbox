@@ -2,10 +2,10 @@
   height: calc(40vh - 55px);
   width: 40%;
   background: #0a2c46;
-  position: fixed;
-  right: 0;
+  position: absolute;
+  left: 160%;
   top: 60px;
-  z-index: 10;
+  z-index: 4;
   display: flex;
   align-items: center;
   text-align: center;
