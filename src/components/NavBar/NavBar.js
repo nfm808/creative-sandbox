@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import {Link} from 'react-router-dom';
 import './NavBar.css';
-import useWindowSize from '../../hooks/useWindowSize';
 import { useTransition, animated } from 'react-spring';
 import Overlay from '../Overlay/Overlay';
 import NavMenu from '../NavMenu/NavMenu';
@@ -9,7 +8,7 @@ import MdMenu from 'react-icons/lib/md/menu';
 import MdClose from 'react-icons/lib/md/close';
 
 export default function NavBar(props) {
-  const size = useWindowSize();
+  const size = props.size;
   const [navMenuOpen, setNavMenuOpen] = useState(false);
   const {pages} = props;
   const overlayTransitions = useTransition(navMenuOpen, null, {
