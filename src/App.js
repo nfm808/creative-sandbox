@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 import { Route, Switch, __RouterContext } from 'react-router-dom';
 import { useTransition, animated } from 'react-spring';
+import useWindowSize from './hooks/useWindowSize';
+import SizeContext from './SizeContext';
 import './App.css';
 import NavBar from './components/NavBar/NavBar';
 import Home from './components/Home/Home';
@@ -13,19 +15,21 @@ import NotFound from './components/NotFound/NotFound';
 
 
 const App = () => {
-
-  const { location, history, match } = useContext(__RouterContext);
+  const size = useWindowSize()
+  const { location } = useContext(__RouterContext);
   const transitions = useTransition(location, location => location.pathname, {
-    from: { opacity: 0, transform: 'translate(-80%, 0)'},
-    enter: { opacity: 1, transform: 'translate(0%, 0)'},
-    leave: { opacity: 0, transform: 'translate(120%, 0)'},
+    from: {  transform: 'translate(-50%, 0) '},
+    enter: {  transform: 'translate(0%, 0) '},
+    leave: {  transform: 'translate(120%, 0) '},
     config: {
-      duration: 400
+      duration: 300,
     }
   });
   return (
     <>
+    <SizeContext.Provider value={size}>
       <NavBar 
+        size={size}
         pages={['About Us', 'Our Work', 'Contact', 'Blog']}
       />
       {transitions.map(({ item, props, key }) => (
@@ -73,6 +77,7 @@ const App = () => {
 
         </animated.div>
       ))}
+    </SizeContext.Provider>
     </>
   )
 

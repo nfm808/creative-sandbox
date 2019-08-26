@@ -19,12 +19,7 @@ export default function NavBar(props) {
   });
 
   function toggleNavMenu() {
-    if (!navMenuOpen) {
-      setNavMenuOpen(true);
-    }
-    if(navMenuOpen) {
-      setNavMenuOpen(false)
-    }
+    setNavMenuOpen(!navMenuOpen)
   }
 
   function renderNav() {
@@ -44,11 +39,11 @@ export default function NavBar(props) {
           <MdClose size={20} color="f7941d"/>
       </button>
     )}
-    return (
+    if (!navMenuOpen) { return (
       <button aria-label="Open the navigation menu" className='NavBar--button' type='button' onClick={() => toggleNavMenu() }>
         <MdMenu size={20} color="white" />
       </button>
-    )
+    )}
   }
 
   function renderNavMenu() {
