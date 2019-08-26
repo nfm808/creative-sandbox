@@ -48,7 +48,7 @@ export default function Home() {
           }}
         >
           <section style={{ textAlign: 'center', width: '100%', padding: '2%', color: 'black', zIndex: '1'}}>
-            <h2>Our focus is your success.</h2>
+            <h2>Our <span className='blue'>Focus</span> is your <span className='orange'>Success</span>.</h2>
           </section>
         </ParallaxLayer>
         <ParallaxLayer 
@@ -57,7 +57,9 @@ export default function Home() {
           speed={1.75}
           style={{zIndex:'2'}}
         >
-          <section style={{height: '100%', width: '98%', background: '#ffffff', margin: '0 auto', borderRadius: '4px', boxShadow: '0px 3px 6px #0a2c469d', zIndex: '3' }} />
+          <section style={{height: '100%', width: '98%', background: '#ffffff', margin: '0 auto', borderRadius: '4px', boxShadow: '0px 3px 6px #0a2c469d', zIndex: '3' }} >
+            
+          </section>
         </ParallaxLayer>
         <ParallaxLayer
           factor={.1}
