@@ -9,6 +9,20 @@
   z-index: -5;
 }
 
+.Home--info {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: space-evenly;
+  height: 80%; 
+  width: 98%;
+  background: #ffffff;
+  margin: 0 auto;
+  border-radius: 4px;
+  box-shadow: 0px 3px 6px #0a2c469d;
+  z-index: 3; 
+}
+
 .Home > div > div {
   background: rgb(236, 234, 234);
 }

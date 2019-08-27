@@ -3,15 +3,21 @@ import SizeContext from '../../SizeContext';
 import './Home.css';
 import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons';
 import bg8 from '../../assets/img/bg8.jpg';
+import MdLightbulbOutline from 'react-icons/lib/md/lightbulb-outline';
+import MdImportantDevices from 'react-icons/lib/md/important-devices';
+import MdTrendingUp from 'react-icons/lib/md/trending-up';
 import AbsoluteWrapper from '../AbsoluteWrapper/AbsoluteWrapper';
 import Copyright from '../Copyright/Copyright';
+import Card from '../Card/Card';
 
 
-export default function Home() {
+
+export default function Home(props) {
+  const { history } = props
   const size = useContext(SizeContext)
   return (
     <AbsoluteWrapper className='Home'>
-      <Parallax pages={2} style={{zIndex: '1'}}>
+      <Parallax pages={2.25} style={{zIndex: '1'}}>
         <ParallaxLayer 
           factor={.95}
           style={{ 
@@ -34,7 +40,8 @@ export default function Home() {
         >
           <section style={{ textAlign: 'left', width: '100%', padding: '2%', color: 'white', zIndex: '1'}}>
             <h1>We Architect<br/> <span className='orange'>Business</span> Solutions</h1>
-            <button>Master Classes</button>
+            <p>Enterprise & Product Strategy | Design | Development</p>
+            <button onClick={() => history.push('/contact')}>Let's work together</button>
           </section>
         </ParallaxLayer>
         <ParallaxLayer
@@ -52,18 +59,43 @@ export default function Home() {
           </section>
         </ParallaxLayer>
         <ParallaxLayer 
-          factor={.87}
+          factor={1.87}
           offset={1.02}
           speed={1.75}
           style={{zIndex:'2'}}
         >
-          <section style={{height: '100%', width: '98%', background: '#ffffff', margin: '0 auto', borderRadius: '4px', boxShadow: '0px 3px 6px #0a2c469d', zIndex: '3' }} >
-            
+          <section className='Home--info' >
+            <Card 
+              heading='VALIDATE YOUR IDEA'
+              text='Avoid building a product no one wants and 
+              define your opportunity through user interviews, 
+              prototype testing and more.'
+              classText='blue'
+            >
+              <MdLightbulbOutline className='orange' size={80} />
+            </Card>
+            <Card 
+              heading='BUILD YOUR PRODUCT'
+              text='Build a reliable product with scalable technology that
+                    that claims your market share.'
+              classText='blue'
+            >
+              <MdImportantDevices className='orange' size={80} />
+            </Card>
+            <Card 
+              heading='GROW YOUR BUSINESS'
+              text='Improve and iterate your product with Lean UX principles
+                    and test driven strategy to create more value for your customers.'
+              classText='blue'
+            >
+              <MdTrendingUp className='orange' size={80} />
+            </Card>
+            <button type='button' role='navigation' onClick={() => history.push('/about-us')}>Learn More</button>
           </section>
         </ParallaxLayer>
         <ParallaxLayer
           factor={.1}
-          offset={(size.width < 1150) ? 1.889 : 1.867}
+          offset={(size.width < 1150) ? 2.1 : 2.1}
         >
           <Copyright />
         </ParallaxLayer>

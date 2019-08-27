@@ -1,0 +1,18 @@
+.Card {
+  display: flex;
+  width: 300px;
+  height: auto;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  text-align: center;
+}
+
+.Card > svg {
+  padding-bottom: 20px;
+}
+
+.Card > h2 {
+  padding-bottom: 5px;
+}
