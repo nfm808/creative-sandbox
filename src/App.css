@@ -1,0 +1,17 @@
+.button {
+  font-size: 1.1rem;
+  width: 33%;
+  background: #f7941d;
+  border-radius: 4px;
+  line-height: 2rem;
+  border: none;
+  padding: 2px;
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+.button:active, .button:hover, .button:focus {
+  background: #0a2c46;
+  color: white;
+  box-shadow: 0px 3px 6px #0a2c46a6;
+}
