@@ -1,0 +1,12 @@
+.About {
+  min-width: 100%;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden scroll;
+}
+.About .Card {
+  padding: 1.2rem;
+}

@@ -3,9 +3,9 @@ import './AbsoluteWrapper.css';
 
 const AbsoluteWrapper = ({ children, className }) => {
   return (
-    <main className={`AbsoluteWrapper ${className}`}>
-      {children}
-    </main>
+    <div className={`AbsoluteWrapper ${className}`}>
+        {children}
+    </div>
   )
 }
 

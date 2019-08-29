@@ -30,7 +30,7 @@ const App = () => {
     <SizeContext.Provider value={size}>
       <NavBar 
         size={size}
-        pages={['About Us', 'Our Work', 'Contact', 'Blog']}
+        pages={['About Us', 'Our Work', 'Learn', 'Contact' ]}
       />
       {transitions.map(({ item, props, key }) => (
         <animated.div key={key} style={props}>
@@ -57,17 +57,17 @@ const App = () => {
             />
             <Route 
               exact
-              path={'/blog'}
+              path={'/learn'}
               component={Blog}
             />
             <Route 
               exact
-              path={`/work/:id`}
+              path={`/our-work/:id`}
               component={Work}
             />
             <Route 
               exact
-              path={'/blog/:id'}
+              path={'/learn/:id'}
               component={BlogPost}
             />
             <Route

@@ -36,8 +36,8 @@ export default function Home(props) {
             zIndex:'2' 
           }}
         >
-          <section style={{ textAlign: 'left', width: '100%', padding: '2%', color: 'white', zIndex: '1'}}>
-            <h1>We Architect<br/> <span className='orange'>Business</span> Solutions</h1>
+          <section style={{ textAlign: 'center', height: '100%', width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '2%', color: 'white', zIndex: '1'}}>
+            <h1>We Architect <span className='orange'>Business</span> Solutions</h1>
             <p>Enterprise & Product Strategy | Design | Development</p>
             <button className='button dark-blue' onClick={() => history.push('/contact')}>Work With Us</button>
           </section>
@@ -83,7 +83,7 @@ export default function Home(props) {
             <Card 
               heading='GROW YOUR BUSINESS'
               text='Improve and iterate your product with Lean UX principles
-                    and a test driven strategy to create more value for your customers.'
+                    and a test driven strategy to create the most value for your customers.'
               classText='blue'
             >
               <MdTrendingUp className='orange' size={80} />

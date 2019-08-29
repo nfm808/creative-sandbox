@@ -1,0 +1,31 @@
+.Values {
+  width: 98%;
+  background: white;
+  margin-top: 10px;
+  border-radius: 4px;
+  padding: 1rem;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  box-shadow: 0px 3px 6px #0a2c469d;
+}
+.Values--heading {
+  padding-top: 3vh;
+  padding-bottom: 3vh;
+}
+
+@media only screen and (min-width: 900px) {
+  .Values {
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 90vh;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .Values {
+    width: 60%;
+  }
+}
