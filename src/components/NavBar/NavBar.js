@@ -14,7 +14,8 @@ export default function NavBar(props) {
   const overlayTransitions = useTransition(navMenuOpen, null, {
     from: { opacity: 1,  transform: 'translate(100%, 0)' },
     enter: { opacity: 1,  transform: 'translate(-100%, 0)' },
-    leave: { opacity: 1,  transform: 'translate(100%, 0)' }
+    leave: { opacity: 1,  transform: 'translate(100%, 0)' },
+    unique: true
   });
 
   function toggleNavMenu() {
