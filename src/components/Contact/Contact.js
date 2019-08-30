@@ -1,9 +1,16 @@
-import React from 'react'
+import React from 'react';
+import './Contact.css';
+import AbsoluteWrapper from '../AbsoluteWrapper/AbsoluteWrapper';
+import Form from '../Form/Form';
 
-export default function Contact() {
+const Contact = () => {
   return (
-    <div>
-      
-    </div>
+    <AbsoluteWrapper >
+      <main className="Contact">
+        <Form />
+      </main>
+    </AbsoluteWrapper>
   )
-}
+};
+
+export default Contact;

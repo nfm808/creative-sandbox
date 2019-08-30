@@ -6,8 +6,6 @@ import Values from '../Values/Values';
 import Card from '../Card/Card';
 import './About.css';
 import Copyright from '../Copyright/Copyright';
-import Divider from '../Divider/Divider';
-import Heading from '../Heading/Heading';
 
 export default function About() {
   return (

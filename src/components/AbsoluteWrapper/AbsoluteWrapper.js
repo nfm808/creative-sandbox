@@ -9,4 +9,8 @@ const AbsoluteWrapper = ({ children, className }) => {
   )
 }
 
+AbsoluteWrapper.defaultProps = {
+  className: '',
+}
+
 export default AbsoluteWrapper;

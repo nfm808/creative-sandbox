@@ -2,7 +2,7 @@ import React from 'react';
 import './Hero.css';
 
 const Hero = (props) => {
-  const { classText, heading, text, imgSrcUrl, overlay } = props
+  const { classText, heading, text, imgSrcUrl} = props
   return (
     <div 
       className={`Hero ${classText}`}

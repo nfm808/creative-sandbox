@@ -39,7 +39,7 @@ export default function Home(props) {
           <section style={{ textAlign: 'center', height: '100%', width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '2%', color: 'white', zIndex: '1'}}>
             <h1>We Architect <span className='orange'>Business</span> Solutions</h1>
             <p>Enterprise & Product Strategy | Design | Development</p>
-            <button className='button dark-blue' onClick={() => history.push('/contact')}>Work With Us</button>
+            <button className='button' onClick={() => history.push('/contact')}>Work With Us</button>
           </section>
         </ParallaxLayer>
         <ParallaxLayer
@@ -88,7 +88,7 @@ export default function Home(props) {
             >
               <MdTrendingUp className='orange' size={80} />
             </Card>
-            <button className='button dark-blue' type='button' role='navigation' onClick={() => history.push('/about-us')}>Learn More</button>
+            <button className='button' type='button' role='navigation' onClick={() => history.push('/about-us')}>Learn More</button>
           </section>
         </ParallaxLayer>
         <ParallaxLayer
