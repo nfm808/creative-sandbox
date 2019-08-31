@@ -15,7 +15,7 @@ export default function NavBar(props) {
     from: { opacity: 1,  transform: 'translate(100%, 0)' },
     enter: { opacity: 1,  transform: 'translate(-100%, 0)' },
     leave: { opacity: 1,  transform: 'translate(100%, 0)' },
-    unique: true
+    unique: true,
   });
 
   function toggleNavMenu() {

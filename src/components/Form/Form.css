@@ -1,5 +1,9 @@
 .Form {
-  width: 300px;
+  width: 98%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
 .Form--group-block {
   display: flex;
@@ -10,7 +14,20 @@
 .Form--group {
   display: flex;
   flex-direction: column;
-  padding: 8px;
+  padding: 1.1rem;
+}
+.Form--group-block-checkbox {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 1.1rem;
+}
+.Form--checkbox-group {
+  padding: .1rem;
+  font-size: 1.1rem;
+}
+.Form--checkbox-group label {
+  padding: .5rem;
 }
 .Form--control {
   border-bottom: 1px solid #f7941d;
@@ -20,5 +37,46 @@
   background-color: transparent;
   color: white;
   line-height: 1.5rem;
-  padding-top: 7px;
+  padding-top: 1rem;
+  padding-left: .25rem;
+  font-size: 1.5rem;
+}
+.Form--control:focus, .Form--control:active {
+  border: 2px solid #f7941d;
+  border-radius: 4px;
+}
+.Form--button {
+  width: 150px;
+  height: 30px;
+  background: #f7941d;
+  border-radius: 4px;
+  border: none;
+  color: black;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+.Form--button:disabled {
+  background: lightslategrey;
+  cursor: none;
+}
+.Form--button:focus {
+  border: 3px solid #1b75bc;
+}
+.Form--full-width-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+.Form--full-width-container-checkbox {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+.Form--checkbox {
+  display: none;
 }

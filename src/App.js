@@ -30,7 +30,7 @@ const App = () => {
     <SizeContext.Provider value={size}>
       <NavBar 
         size={size}
-        pages={['About Us', 'Our Work', 'Learn', 'Contact' ]}
+        pages={['About Us', 'Our Work', 'Learn', 'Hire Us' ]}
       />
       {transitions.map(({ item, props, key }) => (
         <animated.div key={key} style={props}>

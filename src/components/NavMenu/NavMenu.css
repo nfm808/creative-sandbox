@@ -30,3 +30,11 @@
 .NavMenu--ul a:focus {
   color: #f7941d;
 }
+.NavMenu--cta {
+  padding: 1.2rem;
+  border: 2px solid white;
+  border-radius: 4px;
+}
+.NavMenu--cta:hover, .NavMenu--cta:active, .NavMenu--cta:focus {
+  background: white;
+}

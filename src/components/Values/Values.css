@@ -20,7 +20,7 @@
   .Values {
     flex-direction: row;
     flex-wrap: wrap;
-    height: 90vh;
+    height: 75vh;
   }
 }
 

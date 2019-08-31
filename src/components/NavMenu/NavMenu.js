@@ -8,7 +8,7 @@ export default function NavMenu(props) {
     return (
       <ul className='NavMenu--ul'>
         {pages.map((page, i) => (
-          <li key={i}><Link onClick={clickClose} to={page.toLowerCase().split(' ').join('-')}>{page}</Link></li>
+          <li  key={i}><Link className={(page !== 'Hire Us') ? '' : 'NavMenu--cta'} onClick={clickClose} to={(page !== 'Hire Us') ? page.toLowerCase().split(' ').join('-') : 'contact'}>{page}</Link></li>
         ))}
       </ul>
     )
