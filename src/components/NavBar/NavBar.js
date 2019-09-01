@@ -16,16 +16,22 @@ class NavBar extends Component {
     this.state = {
        navMenuOpen: false
     }
-    this.toggleNavMenu = this.toggleNavMenu.bind(this)
+    this.openNavMenu = this.openNavMenu.bind(this)
+    this.closeNavMenu = this.closeNavMenu.bind(this)
     this.renderNav = this.renderNav.bind(this)
     this.renderNavMenu = this.renderNavMenu.bind(this)
   }
 
-  toggleNavMenu() {
+  openNavMenu() {
     this.setState({
-      navMenuOpen: !this.state.navMenuOpen
+      navMenuOpen: true
     })
-    
+  }
+
+  closeNavMenu() {
+    this.setState({
+      navMenuOpen: false
+    })
   }
 
   renderNav() {
@@ -41,7 +47,7 @@ class NavBar extends Component {
       )
     } 
     return (
-      <NavMenuTrigger cb={this.toggleNavMenu} >
+      <NavMenuTrigger cb={(!this.state.navMenuOpen)? this.openNavMenu : this.closeNavMenu} >
         {(!this.state.navMenuOpen) ? <MdMenu size={20} color="white" /> : <MdClose size={20} color="f7941d"/>}
       </NavMenuTrigger>
     )          
@@ -65,11 +71,11 @@ class NavBar extends Component {
             <animated.div 
               style={{...props, position: 'absolute', background: 'transparent', minHeight: '100vh', minWidth: '100vw', zIndex: '3'}}
             >    
-              <Overlay clickClose={this.toggleNavMenu} >
+              <Overlay clickClose={(!this.state.navMenuOpen)? this.openNavMenu : this.closeNavMenu} >
               </Overlay>
               <NavMenu 
                 pages={this.props.pages} 
-                clickClose={this.toggleNavMenu}
+                clickClose={(!this.state.navMenuOpen)? this.openNavMenu : this.closeNavMenu}
               />
             </animated.div>
           )}
@@ -85,7 +91,7 @@ class NavBar extends Component {
       <>
         <header className='NavBar'>
           <div className='NavBar--logo'>
-            <Link onClick={() => navMenuOpen && this.toggleNavMenu()} to='/'><span className='orange'>Sandbox</span>Creative</Link>
+            <Link onClick={() => (!navMenuOpen) ? this.openNavMenu : this.closeNavMenu} to='/'><span className='orange'>Sandbox</span>Creative</Link>
           </div>
           {this.renderNav()}
         </header>
