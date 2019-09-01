@@ -56,6 +56,16 @@ class Form extends Component {
     const { serviceList } = this.state;
     return (
       <form  onSubmit={e => this.handleSubmit(e)} className="Form">
+        <div className="Form--full-width-container">
+          <div className="Form--group-block Form--heading">
+            <h1 style={{paddingBottom: '1rem'}}>Work With Us</h1>
+            <p style={{padding: '1rem'}}>While we are capable of completing any type of project, we don't
+              work with everyone. We choose to partner with clients that align
+              with our values and will benefit from our expertise. 
+            </p>
+            <p style={{padding: '.5rem'}}>Fill out the form below to start a conversation with us.</p>
+          </div>
+        </div>
         <div className="Form--group-block">
           <FormGroup 
             type='name'

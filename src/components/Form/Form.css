@@ -29,6 +29,10 @@
 .Form--checkbox-group label {
   padding: .5rem;
 }
+.Form--heading {
+  width: 85%;
+  text-align: center;
+}
 .Form--control {
   border-bottom: 1px solid #f7941d;
   border-top: none;
@@ -76,4 +80,16 @@
   align-items: center;
   justify-content: center;
   padding: 1.5rem;
+}
+
+@media only screen and (min-width: 1000px) {
+  .Form--heading {
+    width: 50%;
+  }
+}
+
+@media only screen and (min-width: 1600px) {
+  .Form--heading {
+    width: 40%;
+  }
 }
