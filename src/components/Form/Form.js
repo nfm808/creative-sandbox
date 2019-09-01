@@ -12,9 +12,12 @@ class Form extends Component {
        business: '',
        phone: '',
        email: '',
+       projectDescription: '',
+       projectGoals: '',
+       projectTimeline: '',
        phoneValid: false,
        emailValid: false,
-       formValid: false,
+       formValid: true,
        validationMessages: {
          name: '',
          password: '',
@@ -40,7 +43,7 @@ class Form extends Component {
   }
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log('submitted');
+    console.log('submitted')
   };
   updateName = (e) => {
     console.log(e);
@@ -101,14 +104,17 @@ class Form extends Component {
           <FormGroup 
             type='text'
             label='Describe your project and business.'
+            wide
           />
           <FormGroup 
             type='text'
             label='What are your project goals?'
+            wide
           />
           <FormGroup 
             type='text'
             label='How soon are you looking to launch?'
+            wide
           />
         </div>
         <div className='Form--full-width-container'>

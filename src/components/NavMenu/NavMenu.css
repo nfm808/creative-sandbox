@@ -2,7 +2,7 @@
   height: calc(40vh - 55px);
   width: 40%;
   background: #0a2c46;
-  position: absolute;
+  position: fixed;
   left: 160%;
   top: 60px;
   z-index: 4;
@@ -31,7 +31,7 @@
   color: #f7941d;
 }
 .NavMenu--cta {
-  padding: 1.2rem;
+  padding: 1rem;
   border: 2px solid white;
   border-radius: 4px;
 }

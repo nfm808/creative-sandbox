@@ -86,10 +86,17 @@
   .Form--heading {
     width: 50%;
   }
+  .Form--control-wide {
+    width: 50vw;
+  }
 }
 
 @media only screen and (min-width: 1600px) {
   .Form--heading {
     width: 40%;
   }
+  .Form--control-wide {
+    width: 35vw;
+  }
+
 }
