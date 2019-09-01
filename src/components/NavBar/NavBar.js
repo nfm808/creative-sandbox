@@ -28,7 +28,7 @@ export default function NavBar(props) {
         <nav>
           <ul className='NavBar--nav'>
             {pages.map((page, i) => (
-              <li key={i}><Link to={page.toLowerCase().split(' ').join('-')}>{page}</Link></li>
+              <li key={i}><Link to={(page === 'Hire Us') ? 'contact' : page.toLowerCase().split(' ').join('-')}>{page}</Link></li>
             ))}
           </ul>
         </nav>

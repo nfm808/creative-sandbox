@@ -1,10 +1,12 @@
 .Contact {
   min-width: 100vw;
-  min-height: 100vh;
+  min-height: calc(100vh - 55px);
+  margin-top: 55px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
   background: #0a2c46;
   color: white;
+  overflow: hidden auto;
 }

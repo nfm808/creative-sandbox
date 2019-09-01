@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Form.css';
 import FormGroup from '../FormGroup/FormGroup';
+import CheckBox from '../CheckBox/CheckBox';
 
 class Form extends Component {
   constructor(props) {
@@ -23,12 +24,18 @@ class Form extends Component {
     }
   }
   componentDidMount() {
-    const serviceList = [
+    const services = [
       'Website', 'Web Application', 'UX or UI Design', 
       'Enterprise Tools', 'Development', 'iOS Application', 
       'Android Application', 'Content Creation', 'Digital Marketing',
       'Other'
     ];
+    const serviceList = {}
+    function createServiceList() { services.map((service) => 
+      serviceList[service] = false
+      )
+    }
+    createServiceList();
     this.setState({serviceList});
   }
   handleSubmit = (e) => {
@@ -38,10 +45,17 @@ class Form extends Component {
   updateName = (e) => {
     console.log(e);
   }
+  toggleCheck = (e) => {
+    const { serviceList } = this.state
+    const toggled = !serviceList[e]
+    this.setState({
+      serviceList: { ...serviceList, [e]: toggled}
+    })
+  }
   render() {
     const { serviceList } = this.state;
     return (
-      <form onSubmit={e => this.handleSubmit(e)} className="Form">
+      <form  onSubmit={e => this.handleSubmit(e)} className="Form">
         <div className="Form--group-block">
           <FormGroup 
             type='name'
@@ -66,24 +80,7 @@ class Form extends Component {
             cb={this.updateEmail}
           />
         </div >
-        <div className='Form--full-width-container-checkbox'>
-          <div className='Form--group-block-checkbox'>
-            {serviceList.slice(0, 5).map((service, i) => 
-              <div className='Form--checkbox-group'>
-                <input className='Form--control Form--checkbox' key={i} type='checkbox' name={'service' + i} value={service} />
-                <label htmlFor={'service' + i}>{service}</label>
-              </div>
-            )}
-          </div>
-          <div className='Form--group-block-checkbox'>
-            {serviceList.slice(5, serviceList.length).map((service, i) =>
-              <div className='Form--checkbox-group'>
-                <input className='Form--control Form--checkbox' key={i} type='checkbox' name={'service' + i} value={service} />
-                <label htmlFor={'service' + i}>{service}</label>
-              </div>  
-            )}
-          </div>
-        </div>
+        <CheckBox cb={this.toggleCheck} list={Object.keys(serviceList)}/>
         <div className='Form--full-width-container'>
           <button type="submit" className="Form--button" disabled={!this.state.formValid}>
               Submit
