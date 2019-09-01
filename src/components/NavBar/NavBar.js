@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
-import {Transition} from 'react-spring/renderprops';
+import {Transition, animated} from 'react-spring/renderprops';
 import './NavBar.css';
 import Overlay from '../Overlay/Overlay';
 import NavMenu from '../NavMenu/NavMenu';
@@ -25,6 +25,7 @@ class NavBar extends Component {
     this.setState({
       navMenuOpen: !this.state.navMenuOpen
     })
+    
   }
 
   renderNav() {
@@ -51,22 +52,26 @@ class NavBar extends Component {
     return (
       <>
           <Transition
+            native
+            reset
+            unique
             items={navMenuOpen}
             from={{ opacity: 1,  transform: 'translate(100%, 0)' }}
             enter={{ opacity: 1,  transform: 'translate(-100%, 0)' }}
             leave={{ opacity: 1,  transform: 'translate(100%, 0)' }}
-            // style={{...props, position: 'absolute', background: 'transparent', minHeight: '100vh', minWidth: '100vw', zIndex: '3'}}
           > 
           {navMenuOpen => 
              navMenuOpen && (props =>  
-            <>    
+            <animated.div 
+              style={{...props, position: 'absolute', background: 'transparent', minHeight: '100vh', minWidth: '100vw', zIndex: '3'}}
+            >    
               <Overlay clickClose={this.toggleNavMenu} >
               </Overlay>
               <NavMenu 
                 pages={this.props.pages} 
                 clickClose={this.toggleNavMenu}
               />
-            </>
+            </animated.div>
           )}
           </Transition>
       </>
