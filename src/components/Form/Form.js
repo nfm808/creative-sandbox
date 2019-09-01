@@ -90,7 +90,27 @@ class Form extends Component {
             cb={this.updateEmail}
           />
         </div >
+        <div className='Form--full-width-container'>
+          <div className="Form--group-block Form--heading">
+            <p>What type of project are you looking to partner on?</p>
+            <p>(Select all that apply)</p>
+          </div>
+        </div>
         <CheckBox cb={this.toggleCheck} list={Object.keys(serviceList)}/>
+        <div className='Form--group-block'>
+          <FormGroup 
+            type='text'
+            label='Describe your project and business.'
+          />
+          <FormGroup 
+            type='text'
+            label='What are your project goals?'
+          />
+          <FormGroup 
+            type='text'
+            label='How soon are you looking to launch?'
+          />
+        </div>
         <div className='Form--full-width-container'>
           <button type="submit" className="Form--button" disabled={!this.state.formValid}>
               Submit
