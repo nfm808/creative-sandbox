@@ -91,7 +91,7 @@ class NavBar extends Component {
       <>
         <header className='NavBar'>
           <div className='NavBar--logo'>
-            <Link onClick={() => (!navMenuOpen) ? this.openNavMenu() : this.closeNavMenu()} to='/'><span className='orange'>Sandbox</span>Creative</Link>
+            <Link onClick={() => (navMenuOpen) && this.closeNavMenu()} to='/'><span className='orange'>Sandbox</span>Creative</Link>
           </div>
           {this.renderNav()}
         </header>
