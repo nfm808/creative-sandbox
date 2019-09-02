@@ -15,7 +15,7 @@ export default function Home(props) {
   const { history } = props
   return (
     <AbsoluteWrapper className='Home'>
-      <Parallax pages={2.25} style={{zIndex: '1'}}>
+      <Parallax className="Scroll-element" pages={2.25} style={{zIndex: '1'}}>
         <ParallaxLayer 
           factor={.95}
           style={{ 
@@ -23,7 +23,7 @@ export default function Home(props) {
             backgroundSize: 'cover', 
             backgroundPosition: 'center', 
             filter: 'blur(3px) brightness(60%)',
-          }} 
+          }}
         >
         </ParallaxLayer>
         <ParallaxLayer

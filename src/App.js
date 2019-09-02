@@ -31,6 +31,7 @@ const App = () => {
       <NavBar 
         size={size}
         pages={['About Us', 'Our Work', 'Learn', 'Hire Us' ]}
+        location={location}
       />
       {transitions.map(({ item, props, key }) => (
         <animated.div key={key} style={props}>

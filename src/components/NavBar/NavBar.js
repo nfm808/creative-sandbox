@@ -7,6 +7,7 @@ import NavMenu from '../NavMenu/NavMenu';
 import MdMenu from 'react-icons/lib/md/menu';
 import MdClose from 'react-icons/lib/md/close';
 import NavMenuTrigger from '../NavMenuTrigger/NavMenuTrigger';
+import ScrollToTop from '../ScrollToTop/ScrollToTop';
 
 
 class NavBar extends Component {
@@ -14,23 +15,43 @@ class NavBar extends Component {
     super(props)
   
     this.state = {
-       navMenuOpen: false
+       navMenuOpen: false,
+       scrollPos: 0
     }
     this.openNavMenu = this.openNavMenu.bind(this)
     this.closeNavMenu = this.closeNavMenu.bind(this)
     this.renderNav = this.renderNav.bind(this)
     this.renderNavMenu = this.renderNavMenu.bind(this)
+    this.scrollToTop = this.scrollToTop.bind(this)
   }
-
+  scrollToTop(element) {
+    element.scrollTo(0, 0);
+  }
   openNavMenu() {
+    let body = window.document.getElementsByTagName("body")[0];
+    let div = window.document.getElementsByClassName("Scroll-element")[0];
+    let isHomePath = (this.props.location.pathname === '/') ? true : false;
     this.setState({
+      scrollPos: isHomePath ? div.scrollTop : body.scrollTop,
       navMenuOpen: true
-    })
+    }, isHomePath ? this.scrollToTop(div) : this.scrollToTop(body))
+    body.classList.add("scroll-lock")
   }
 
+  scrollToPrevious(body) {
+    if (this.props.location.pathname === '/') {
+      let div = window.document.getElementsByClassName("Scroll-element")[0]
+      div.scrollTo(0, this.state.scrollPos);
+    }
+    body.scrollTo(0, this.state.scrollPos);
+  }
   closeNavMenu() {
+    let body = window.document.getElementsByTagName("body")[0];
+    body.classList.remove("scroll-lock");
+    this.scrollToPrevious(body);
     this.setState({
-      navMenuOpen: false
+      navMenuOpen: false,
+      scrollPos: 0
     })
   }
 
@@ -47,8 +68,11 @@ class NavBar extends Component {
       )
     } 
     return (
-      <NavMenuTrigger cb={(!this.state.navMenuOpen)? this.openNavMenu : this.closeNavMenu} >
-        {(!this.state.navMenuOpen) ? <MdMenu size={20} color="white" /> : <MdClose size={20} color="f7941d"/>}
+      <NavMenuTrigger 
+        cb={(!this.state.navMenuOpen)? this.openNavMenu : this.closeNavMenu} 
+        open={!this.state.navMenuOpen? false : true}
+      >
+        {/* {(!this.state.navMenuOpen) ? <MdMenu size={20} color="white" /> : <MdClose size={20} color="f7941d"/>} */}
       </NavMenuTrigger>
     )          
   }
