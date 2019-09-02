@@ -18,9 +18,9 @@ const App = () => {
   const size = useWindowSize()
   const { location } = useContext(__RouterContext);
   const transitions = useTransition(location, location => location.pathname, {
-    from: {  transform: 'translate(-50%, 0) '},
-    enter: {  transform: 'translate(0%, 0) '},
-    leave: {  transform: 'translate(120%, 0) '},
+    from: { opacity: .2, transform: 'translate(-50%, 0) '},
+    enter: { opacity: 1, transform: 'translate(0%, 0) '},
+    leave: { opacity: .2, transform: 'translate(120%, 0) '},
     config: {
       duration: 300,
     }
@@ -76,6 +76,7 @@ const App = () => {
           </Switch>
 
         </animated.div>
+
       ))}
     </SizeContext.Provider>
     </>
