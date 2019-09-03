@@ -48,6 +48,24 @@ class Form extends Component {
   updateName = (e) => {
     console.log(e);
   }
+  updateBusiness = (e) => {
+    console.log(e);
+  }
+  updatePhone = (e) => {
+    console.log(e);
+  }
+  updateEmail = (e) => {
+    console.log(e);
+  }
+  updateProjectDescription = (e) => {
+    console.log(e);
+  }
+  updateGoals = (e) => {
+    console.log(e);
+  }
+  updateLaunchTimeline = (e) => {
+    console.log(e);
+  }
   toggleCheck = (e) => {
     const { serviceList } = this.state
     const toggled = !serviceList[e]
@@ -76,7 +94,7 @@ class Form extends Component {
             cb={this.updateName}
           />
           <FormGroup 
-            type='phone'
+            type='tel'
             label='Phone Number'
             cb={this.updatePhone}
           />
@@ -104,16 +122,19 @@ class Form extends Component {
           <FormGroup 
             type='text'
             label='Describe your project and business.'
+            cb={this.updateProjectDescription}
             wide
           />
           <FormGroup 
             type='text'
             label='What are your project goals?'
+            cb={this.updateGoals}
             wide
           />
           <FormGroup 
             type='text'
             label='How soon are you looking to launch?'
+            cb={this.updateLaunchTimeline}
             wide
           />
         </div>

@@ -4,10 +4,7 @@ import {Transition, animated} from 'react-spring/renderprops';
 import './NavBar.css';
 import Overlay from '../Overlay/Overlay';
 import NavMenu from '../NavMenu/NavMenu';
-import MdMenu from 'react-icons/lib/md/menu';
-import MdClose from 'react-icons/lib/md/close';
 import NavMenuTrigger from '../NavMenuTrigger/NavMenuTrigger';
-import ScrollToTop from '../ScrollToTop/ScrollToTop';
 
 
 class NavBar extends Component {
@@ -72,7 +69,6 @@ class NavBar extends Component {
         cb={(!this.state.navMenuOpen)? this.openNavMenu : this.closeNavMenu} 
         open={!this.state.navMenuOpen? false : true}
       >
-        {/* {(!this.state.navMenuOpen) ? <MdMenu size={20} color="white" /> : <MdClose size={20} color="f7941d"/>} */}
       </NavMenuTrigger>
     )          
   }
