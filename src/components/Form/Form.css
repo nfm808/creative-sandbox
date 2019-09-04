@@ -81,7 +81,9 @@
   justify-content: center;
   padding: 1.5rem;
 }
-
+.error {
+  color: #f7941d;
+}
 @media only screen and (min-width: 1000px) {
   .Form--heading {
     width: 50%;
