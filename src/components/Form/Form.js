@@ -15,13 +15,25 @@ class Form extends Component {
        projectDescription: '',
        projectGoals: '',
        projectTimeline: '',
+       nameValid: false,
+       businessValid: false,
        phoneValid: false,
        emailValid: false,
-       formValid: true,
+       serviceListValid: false,
+       formValid: false,
+       projectDescriptionValid: false,
+       projectGoalsValid: false,
+       projectTimelineValid: false,
+       projectTypeValid: false,
        validationMessages: {
-         name: '',
-         password: '',
-         repeatPassword: ''
+        name: '',
+        phone: '',
+        business: '',
+        email: '',
+        projectDescription: '',
+        projectGoals: '',
+        projectTimeline: '',
+        serviceList: ''
       },
       serviceList: []
     }
@@ -46,32 +58,203 @@ class Form extends Component {
     console.log('submitted')
   };
   updateName = (e) => {
-    console.log(e);
+    this.setState({
+      name: e
+    }, this.validateName(e))
+  }
+  validateName = (e) => {
+    let err = false;
+    let msg;
+    if (e.length < 1 || e.length > 72) {
+      msg = 'Required Field'
+    }
+    else {
+      err = !err
+      msg = ''
+    }
+    this.setState({
+      nameValid: err,
+      validationMessages: {
+        ...this.state.validationMessages,
+        name: msg
+      }
+    }, () => this.formValid())
   }
   updateBusiness = (e) => {
-    console.log(e);
+    this.setState({
+      business: e
+    }, this.validateBusiness(e))
+  }
+  validateBusiness = (e) => {
+    let err = false;
+    let msg;
+    if (e.length < 1 || e.length > 72) {
+      msg = 'Required Field'
+    }
+    else {
+      err = !err
+      msg = ''
+    }
+    this.setState({
+      businessValid: err,
+      validationMessages: {
+        ...this.state.validationMessages,
+        business: msg
+      }
+    }, () => this.formValid())
   }
   updatePhone = (e) => {
-    console.log(e);
+    this.setState({
+      phone: e,
+    }, this.validatePhone(e))
+  }
+  validatePhone = (e) => {
+      let phoneno = /^\d{10}$/;
+      let msg;
+      let err = false;
+      if(!e.match(phoneno)) {
+        msg = 'Insert Valid Phone Number';
+      }
+      else {
+        msg = '';
+        err = !err
+      }
+      this.setState({
+        phoneValid: err,
+        validationMessages: {
+          ...this.state.validationMessages,
+          phone: msg
+        }
+      }, () => this.formValid())
   }
   updateEmail = (e) => {
-    console.log(e);
+    this.setState({
+      email: e,
+    }, this.validateEmail(e))
+  }
+  validateEmail = (e) => {
+    let msg;
+    let err = false
+    let mailFormat = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,18})+$/;
+    if (!e.match(mailFormat)) {
+      msg = 'Valid Email Required';
+    } else {
+      msg = ''
+      err = !err
+    }
+    this.setState({
+      emailValid: err,
+      validationMessages: {
+        ...this.state.validationMessages,
+        email: msg
+      }
+    }, () => this.formValid())
   }
   updateProjectDescription = (e) => {
-    console.log(e);
+    this.setState({
+      projectDescription: e
+    }, this.validateProjectDescription(e))
   }
-  updateGoals = (e) => {
-    console.log(e);
+  validateProjectDescription = (e) => {
+    let msg;
+    let err = false
+    if (e.length < 1) {
+      msg = 'Required Field'
+    } else {
+      msg = ''
+      err = !err
+    }
+    this.setState({
+      projectDescriptionValid: err,
+      validationMessages: {
+        ...this.state.validationMessages,
+        projectDescription: msg
+      }
+    }, () => this.formValid())
   }
-  updateLaunchTimeline = (e) => {
-    console.log(e);
+  updateProjectGoals = (e) => {
+    this.setState({
+      projectGoals: e
+    }, this.validateProjectGoals(e))
   }
-  toggleCheck = (e) => {
+  validateProjectGoals = (e) => {
+    let msg;
+    let err = false
+    if (e.length < 1) {
+      msg = 'Required Field'
+    } else {
+      msg = ''
+      err = !err
+    }
+    this.setState({
+      projectGoalsValid: err,
+      validationMessages: {
+        ...this.state.validationMessages,
+        projectGoals: msg
+      }
+    }, () => this.formValid())
+  }
+  updateProjectTimeline = (e) => {
+    this.setState({
+      projectTimeline: e
+    }, this.validateProjectTimeline(e))
+  }
+  validateProjectTimeline = (e) => {
+    let msg;
+    let err = false
+    if (e.length < 1) {
+      msg = 'Required Field'
+    } else {
+      msg = ''
+      err = !err
+    }
+    this.setState({
+      projectTimelineValid: err,
+      validationMessages: {
+        ...this.state.validationMessages,
+        projectTimeline: msg
+      }
+    }, () => this.formValid())
+  }
+  formValid = () => {
+    const { 
+      nameValid, businessValid, 
+      phoneValid, emailValid,
+      projectDescriptionValid, projectGoalsValid,
+      projectTimelineValid, projectTypeValid,  
+    } = this.state
+    if (nameValid && businessValid && phoneValid && emailValid 
+      && projectDescriptionValid && projectGoalsValid 
+      && projectTimelineValid && projectTypeValid ) {
+        this.setState({
+          formValid: true
+        })
+    }
+  }
+  toggleServiceListCheck = (e) => {
     const { serviceList } = this.state
-    const toggled = !serviceList[e]
+    const toggled = (serviceList[e] ===false) ? true : false;
     this.setState({
       serviceList: { ...serviceList, [e]: toggled}
-    })
+    },() => this.validateServiceList())
+  }
+  validateServiceList = () => {
+    let msg;
+    let err = false
+    let serviceListHasSelection = Object.values(this.state.serviceList).includes(true)
+    if (!serviceListHasSelection) {
+      msg = 'Please Make a Selection'
+    } else {
+      msg = ''
+      err = !err
+    }
+    this.setState({
+      projectTypeValid: err,
+      validationMessages: {
+        ...this.state.validationMessages,
+        serviceList: msg
+      }
+    }, () => this.formValid())
   }
   render() {
     const { serviceList } = this.state;
@@ -117,7 +300,7 @@ class Form extends Component {
             <p>(Select all that apply)</p>
           </div>
         </div>
-        <CheckBox cb={this.toggleCheck} list={Object.keys(serviceList)}/>
+        <CheckBox cb={this.toggleServiceListCheck} list={Object.keys(serviceList)}/>
         <div className='Form--group-block'>
           <FormGroup 
             type='text'
@@ -128,13 +311,13 @@ class Form extends Component {
           <FormGroup 
             type='text'
             label='What are your project goals?'
-            cb={this.updateGoals}
+            cb={this.updateProjectGoals}
             wide
           />
           <FormGroup 
             type='text'
             label='How soon are you looking to launch?'
-            cb={this.updateLaunchTimeline}
+            cb={this.updateProjectTimeline}
             wide
           />
         </div>
