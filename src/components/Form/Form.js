@@ -56,6 +56,7 @@ class Form extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     console.log('submitted')
+    // insert a post call to inquiry endpoint here
   };
   updateName = (e) => {
     this.setState({
