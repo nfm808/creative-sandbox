@@ -53,12 +53,12 @@ class NavBar extends Component {
   }
 
   renderNav() {
-    if (this.props.size.width > '767') {
+    if (this.props.size.width > '850') {
       return (
         <nav>
           <ul className='NavBar--nav'>
             {this.props.pages.map((page, i) => (
-              <li key={i}><Link to={(page === 'Hire Us') ? 'contact' : page.toLowerCase().split(' ').join('-')}>{page}</Link></li>
+              <li className={(page === 'Hire Us') ? 'NavBar--cta' : 'NavBar--li'} key={i}><Link  to={(page === 'Hire Us') ? 'contact' : page.toLowerCase().split(' ').join('-')}>{page}</Link></li>
             ))}
           </ul>
         </nav>
