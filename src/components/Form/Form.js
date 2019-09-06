@@ -58,7 +58,18 @@ class Form extends Component {
   }
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log('submitted')
+    const { name, phone, email, business, serviceList, projectDescription, projectGoals, projectTimeline } = this.state;
+    const msg = {
+      name: name,
+      business: business,
+      email: email,
+      phone: phone,
+      serviceList: Object.keys(serviceList).filter(x => serviceList[x] === true),
+      projectDescription: projectDescription,
+      projectGoals: projectGoals,
+      projectTimeline: projectTimeline
+    }
+    console.log(msg)
     // insert a post call to inquiry endpoint here
     this.setState({
       isSubmitted: true,
@@ -282,7 +293,7 @@ class Form extends Component {
               work with everyone. We choose to partner with clients that align
               with our values and will benefit from our expertise. 
             </p>
-            <p style={{padding: '.5rem'}}>Fill out the form below to start a conversation with us.</p>
+            <p style={{padding: '1rem'}}>Fill out the form below to start a conversation with us.</p>
           </div>
         </div>
         <div className="Form--group-block">

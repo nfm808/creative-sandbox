@@ -10,7 +10,7 @@ const Copyright = (props) => {
                       color: `${color}`
                     }}
     >
-      <p><span role='img' aria-label='copyright'>©️ </span> {new Date(Date.now()).toLocaleDateString().split('/')[2]} | {company}</p>
+      <p className="align-center"><span role='img' aria-label='copyright'>©️ </span> {new Date(Date.now()).toLocaleDateString().split('/')[2]} | {company}</p>
     </section>
   )
 };

@@ -21,9 +21,9 @@ export default function About() {
         <Values >
           <Card 
             classText='blue'
-            heading='Total Transparency'
-            text='At every step of the way we maintain an open dialogue and 
-                  full disclosure. The only wrong question is the one unasked.'
+            heading='Outcomes over Features'
+            text='We focus on creating solutions that generate the maximum value
+                  for all stakeholders involved.'
           />
           <Card 
             classText='blue'
@@ -32,9 +32,9 @@ export default function About() {
           />
           <Card 
             classText='blue'
-            heading='Outcomes over Features'
-            text='We focus on creating solutions that generate the maximum value
-                  for all stakeholders involved.'
+            heading='Total Transparency'
+            text='At every step of the way we maintain an open dialogue and 
+                  full disclosure. The only wrong question is the one unasked.'
           />
           <Card 
             classText='blue'

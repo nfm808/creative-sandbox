@@ -42,6 +42,9 @@ h4 {
 p, ul, ol, pre, table, blockquote {
   margin-top: 0em;
 }
+p {
+  text-align: left;
+}
 ul ul, ol ol, ul ol, ol ul {
   margin-top: 0em;
   margin-bottom: 0em;
@@ -84,4 +87,8 @@ code {
 
 .scroll-lock {
   display: hidden;
+}
+
+.align-center {
+  text-align: center;
 }
