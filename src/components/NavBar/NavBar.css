@@ -12,6 +12,7 @@
   box-shadow: 0px 3px 6px #0a2c469d;
   border-radius: 0px 0px 4px 4px;
   z-index: 3;
+  border-top: 4px solid #f7941d;
 }
 .NavBar--logo a:hover {
   cursor: pointer;

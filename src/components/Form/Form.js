@@ -26,6 +26,7 @@ class Form extends Component {
        projectGoalsValid: false,
        projectTimelineValid: false,
        projectTypeValid: false,
+       isSubmitted: false,
        validationMessages: {
         name: '',
         phone: '',
@@ -34,7 +35,8 @@ class Form extends Component {
         projectDescription: '',
         projectGoals: '',
         projectTimeline: '',
-        serviceList: ''
+        serviceList: '',
+        isSubmitted: ''
       },
       serviceList: []
     }
@@ -58,6 +60,13 @@ class Form extends Component {
     e.preventDefault();
     console.log('submitted')
     // insert a post call to inquiry endpoint here
+    this.setState({
+      isSubmitted: true,
+      validationMessages: {
+        ...this.state.validationMessages,
+        isSubmitted: 'Mahalo! We will be in contact within 3 days.'
+      }
+    })
   };
   updateName = (e) => {
     this.setState({
@@ -262,7 +271,7 @@ class Form extends Component {
     const { 
       serviceList, nameValid, phoneValid, 
       emailValid, businessValid, 
-      projectDescriptionValid, projectGoalsValid, 
+      projectDescriptionValid, projectGoalsValid, isSubmitted,
       projectTimelineValid, projectTypeValid, validationMessages } = this.state;
     return (
       <form  onSubmit={e => this.handleSubmit(e)} className="Form">
@@ -342,8 +351,13 @@ class Form extends Component {
             <ValidationError hasError={!projectTimelineValid} message={validationMessages.projectTimeline} />
           </FormGroup>
         </div>
+        {isSubmitted && 
+          <div className='Form--full-width-container'>
+            <ValidationError hasError={isSubmitted} message={validationMessages.isSubmitted} />
+          </div>
+        }
         <div className='Form--full-width-container'>
-          <button type="submit" className="Form--button" disabled={!this.state.formValid}>
+          <button type="submit" className="Form--button" disabled={!this.state.formValid || this.state.isSubmitted}>
               Submit
           </button>
         </div>
