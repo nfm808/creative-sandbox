@@ -17,7 +17,7 @@ import NotFound from './components/NotFound/NotFound';
 const App = () => {
   const size = useWindowSize()
   const speed = (size.width > 1100) ? 150 : 200;
-  const { location } = useContext(__RouterContext);
+  const { location, history } = useContext(__RouterContext);
   const transitions = useTransition(location, location => location.pathname, {
     from: { opacity: .2, transform: 'translate(-50%, 0) '},
     enter: { opacity: 1, transform: 'translate(0%, 0) '},
@@ -33,6 +33,7 @@ const App = () => {
         size={size}
         pages={['About Us', 'Our Work', 'Learn', 'Hire Us' ]}
         location={location}
+        history={history}
       />
       {transitions.map(({ item, props, key }) => (
         <animated.div key={key} style={props}>

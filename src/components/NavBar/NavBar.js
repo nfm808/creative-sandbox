@@ -58,7 +58,7 @@ class NavBar extends Component {
         <nav>
           <ul className='NavBar--nav'>
             {this.props.pages.map((page, i) => (
-              <li className={(page === 'Hire Us') ? 'NavBar--cta' : 'NavBar--li'} key={i}><Link  to={(page === 'Hire Us') ? 'contact' : page.toLowerCase().split(' ').join('-')}>{page}</Link></li>
+              <li onClick={() => this.props.history.push((page === 'Hire Us') ? '/contact' : `/${page.toLowerCase().split(' ').join('-')}`)} className={(page === 'Hire Us') ? 'NavBar--cta' : 'NavBar--li'} key={i}><Link  to={(page === 'Hire Us') ? 'contact' : page.toLowerCase().split(' ').join('-')}>{page}</Link></li>
             ))}
           </ul>
         </nav>
