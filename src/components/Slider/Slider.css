@@ -1,0 +1,22 @@
+.Slider {
+  position: relative;
+  width: 300px;
+  height: 250px;
+  overflow: hidden;
+}
+
+.aws-btn {
+  --slider-height-percentage: 60%;
+  --slider-transition-duration: 525ms;
+  --organic-arrow-thickness: 4px;
+  --organic-arrow-border-radius: 0px;
+  --organic-arrow-height: 40px;
+  --organic-arrow-color: #0a2c46;
+  --control-button-width: 10%;
+  --control-button-height: 25%;
+  --control-button-background: transparent;
+  --control-bullet-color: #0a2c46;
+  --control-bullet-active-color: #f7941d;
+  --loader-bar-color: #851515;
+  --loader-bar-height: 6px;
+  }

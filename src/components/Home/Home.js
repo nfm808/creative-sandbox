@@ -8,11 +8,88 @@ import MdTrendingUp from 'react-icons/lib/md/trending-up';
 import AbsoluteWrapper from '../AbsoluteWrapper/AbsoluteWrapper';
 import Copyright from '../Copyright/Copyright';
 import Card from '../Card/Card';
+import Testimonial from '../Testimonial/Testimonial';
 
 
 
-export default function Home(props) {
-  const { history } = props
+
+ class Home extends React.Component {
+  constructor(props) {
+    super(props)
+  
+    this.state = {
+      index: 0,
+      isFaded: false,
+      testimonials: null
+    }
+  }
+  
+  componentDidMount() {
+    const testimonials = [
+      {
+        id: 0,
+        logo: 'https://images.unsplash.com/1/type-away.jpg?q=80&fm=jpg&w=200&fit=max',
+        alt: 'business',
+        quote: 'This was a great way to work and develop my dream app.',
+        person: 'John Wilkes Boothe',
+        title: 'hitman',
+        industry: 'killin'
+      },
+      {
+        id: 1,
+        logo: 'https://images.unsplash.com/1/type-away.jpg?q=80&fm=jpg&w=200&fit=max',
+        alt: 'business2',
+        quote: 'They did amazing work keeping things super fresh.',
+        person: 'person 2',
+        title: 'testposition2',
+        industry: 'test2'
+      },
+      {
+        id: 2,
+        logo: 'https://images.unsplash.com/1/type-away.jpg?q=80&fm=jpg&w=200&fit=max',
+        alt: 'business3',
+        quote: 'test quote 3',
+        person: 'person 3',
+        title: 'testposition 3',
+        industy: 'test3'
+      }
+    ]
+    this.setState({
+      testimonials: testimonials
+    })
+  }
+  indexPlusOne = () => {
+    const {testimonials, index} = this.state
+    let newIndex;
+    let faded = true
+    if (index === testimonials.length -1) {
+      newIndex = 0
+    } else {
+      newIndex = index + 1
+    }
+    this.setState({
+      index: newIndex,
+      isFaded: faded
+    })
+  }
+
+  indexMinusOne = () => {
+    const {testimonials, index} = this.state
+    let newIndex;
+    let faded = true
+    if (index === 0) {
+      newIndex = testimonials.length - 1
+    } else {
+      newIndex = index -1 
+    }
+    this.setState({
+      index: newIndex,
+      isFaded: faded
+    })
+  }
+  render() {
+  const {history} = this.props
+  const {testimonials, index, isFaded} = this.state
   return (
     <AbsoluteWrapper className='Home'>
       <Parallax className="Scroll-element" pages={2.25} style={{zIndex: '1'}}>
@@ -38,7 +115,7 @@ export default function Home(props) {
         >
           <section style={{ textAlign: 'center', height: '100%', width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '2%', color: 'white', zIndex: '1'}}>
             <h1>We Architect <span className='orange'>Business</span> Solutions</h1>
-            <p>Enterprise & Product Strategy | Design | Development</p>
+            <h4>Enterprise & Product Strategy | Design | Development</h4>
             <button className='button' onClick={() => history.push('/contact')}>Work With Us</button>
           </section>
         </ParallaxLayer>
@@ -52,8 +129,19 @@ export default function Home(props) {
             zIndex:'2' 
           }}
         >
-          <section style={{ textAlign: 'center', width: '100%', padding: '2%', color: 'black', zIndex: '1'}}>
-            <h2>Our <span className='blue'>Focus</span> is your <span className='orange'>Success</span>.</h2>
+          <section className="Testimonial--container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center', width: '100%', padding: '2%', color: 'black', zIndex: '1'}}>
+              {testimonials &&
+              <Testimonial 
+                logo={testimonials[index].logo}
+                alt={testimonials[index].alt}
+                quote={testimonials[index].quote}          
+                person={testimonials[index].person}
+                title={testimonials[index].title}
+                industry={testimonials[index].industry}
+                plusOne={this.indexPlusOne}
+                minusOne={this.indexMinusOne}
+                faded={!isFaded ? false : true}
+              />}
           </section>
         </ParallaxLayer>
         <ParallaxLayer 
@@ -99,5 +187,7 @@ export default function Home(props) {
         </ParallaxLayer>
       </Parallax>
     </AbsoluteWrapper>
-  )
+  )}
 }
+
+export default Home;
