@@ -1,7 +1,7 @@
 import React from 'react';
 import './Testimonial.css';
 import Divider from '../Divider/Divider';
-import MdKeyboardArrowDown from 'react-icons/lib/md/more-horiz';
+import MdMoreHoriz from 'react-icons/lib/md/more-horiz';
 
 const Testimonial = ({id, logo, alt, quote, person, title, industry, plusOne, minusOne, faded}) => {
   if (faded) {
@@ -25,13 +25,14 @@ const Testimonial = ({id, logo, alt, quote, person, title, industry, plusOne, mi
   return (
     <section className="Testimonial" >
       <div className="Testimonial--item" key={id} >
+        <Divider border={'1px solid #f7941d'} className="fade transform" width={'2%'} />
         <img className="Testimonial--img fade transform" src={logo} alt={alt + ' logo'} />
         <h4 className="Testimonial--quote fade transform">"{quote}"</h4>
         <Divider border={'1px solid #f7941d'} className="fade transform" width={'10%'}/>
         <h5 className="Testimonial--person fade transform">{person} : {title}</h5>
         <h6 className="Testimonial--industry fade transform">Industry: {industry}</h6>
         <button className="Testimonial--button" role='navigation' value="left" onClick={(e) => addFadeOutClass(minusOne, e.target.value)}>
-          <MdKeyboardArrowDown color="#f7941d" size={20} />
+          <MdMoreHoriz color="#f7941d" size={20} />
         </button>
       </div>
     </section>

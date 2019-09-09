@@ -92,7 +92,7 @@ import Testimonial from '../Testimonial/Testimonial';
   const {testimonials, index, isFaded} = this.state
   return (
     <AbsoluteWrapper className='Home'>
-      <Parallax className="Scroll-element" pages={2.25} style={{zIndex: '1'}}>
+      <Parallax className="Scroll-element" pages={2.4} style={{zIndex: '1'}}>
         <ParallaxLayer 
           factor={.95}
           style={{ 
@@ -121,7 +121,8 @@ import Testimonial from '../Testimonial/Testimonial';
         </ParallaxLayer>
         <ParallaxLayer
           factor={.25}
-          offset={1.1}
+          offset={.96}
+          speed={-.21}
           style={{
             display: 'flex',
             alignItems: 'center',
@@ -146,7 +147,7 @@ import Testimonial from '../Testimonial/Testimonial';
         </ParallaxLayer>
         <ParallaxLayer 
           factor={1.87}
-          offset={1.02}
+          offset={1.5}
           speed={1.75}
           style={{zIndex:'2'}}
         >
@@ -181,7 +182,7 @@ import Testimonial from '../Testimonial/Testimonial';
         </ParallaxLayer>
         <ParallaxLayer
           factor={.1}
-          offset={2.1}
+          offset={2.3}
         >
           <Copyright />
         </ParallaxLayer>
