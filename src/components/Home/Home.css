@@ -26,3 +26,19 @@
 .Home > div > div {
   background: rgb(236, 234, 234);
 }
+
+@media only screen and (min-width: 900px) {
+  .Home--info {
+    width: 85%;
+  }
+}
+
+@media only screen and (min-width: 1400px ) {
+  .Home--info {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 90%;
+  }
+}

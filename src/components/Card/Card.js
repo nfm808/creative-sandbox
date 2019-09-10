@@ -1,14 +1,22 @@
-import React from 'react';
+import React, {useState} from 'react';
+import Divider from '../Divider/Divider';
 import './Card.css';
 
 
 const Card = (props) => {
-  const { heading, text, classText } = props
+  const [show, setShow] = useState(false)
+  const { heading, text, classText, children } = props
+  function setState(bool) {
+    setShow(bool)
+  }
   return (
-    <li className='Card' >
-      {props.children}
-      <h2 className={classText}>{heading}</h2>
-      <p>{text}</p>
+    <li onMouseEnter={() => setState(true)} onMouseLeave={() => setShow(false)} className={show? 'background-change Card' : 'Card'} >
+      {children}
+      <h2 onMouseEnter={() => setState(true) } onMouseLeave={() => setShow(false)} className={!show ? classText : 'orange' }>{heading}</h2>
+      <div onMouseEnter={() => setState(true) } onMouseLeave={() => setState(false)} className="Card--divider-container">
+        <Divider onMouseEnter={() => setState(true) } onMouseLeave={() => setState(false)} width="10%" border={show && '1px solid white'}/>
+      </div>
+      <p onMouseEnter={() => setState(true) } onMouseLeave={() => setShow(false)} className={show ? "Card--p" : "Card--hidden"} >{text}</p>  
     </li>
   )
 

@@ -7,6 +7,11 @@
   justify-content: space-between;
   padding: 5px;
   text-align: center;
+  border-radius: 4px;
+  background-color: none;
+  transition-property: background-color color box-shadow;
+  transition-duration: 400ms;
+  transition-timing-function: ease-in-out;
 }
 
 .Card > svg {
@@ -15,4 +20,36 @@
 
 .Card > h2 {
   padding-bottom: 1rem;
+}
+
+@media only screen and (min-width: 1000px) {
+  .Card--divider-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: .2rem;
+  }
+  .background-change {
+    background-color: #0a2c46;
+    color: white;
+    box-shadow: 0px 3px 6px #0a2c469d;
+    border-radius: 4px;
+  }
+  .Card--p {
+    width: 300px;
+    color: white;
+    opacity: 1;
+    padding: .66rem;
+    transition-property: background-color opacity color;
+    transition-duration: 400ms;
+    transition-timing-function: ease-in-out;
+  }
+  .Card--hidden {
+    background-color: none;
+    height: auto;
+    width: 300px;
+    color: white;
+    opacity: 0;
+  }
 }

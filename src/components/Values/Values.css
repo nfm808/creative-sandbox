@@ -1,5 +1,6 @@
 .Values {
   width: 98%;
+  height: auto;
   background: white;
   margin-top: 10px;
   border-radius: 4px;
@@ -20,7 +21,7 @@
   .Values {
     flex-direction: row;
     flex-wrap: wrap;
-    height: 75vh;
+    height: auto;
   }
 }
 

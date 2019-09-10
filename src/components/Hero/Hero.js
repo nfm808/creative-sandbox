@@ -2,7 +2,7 @@ import React from 'react';
 import './Hero.css';
 
 const Hero = (props) => {
-  const { classText, heading, text, imgSrcUrl} = props
+  const { classText, heading, text, imgSrcUrl, height} = props
   return (
     <div 
       className={`Hero ${classText}`}
@@ -10,6 +10,7 @@ const Hero = (props) => {
         backgroundImage: `url(${imgSrcUrl})`, 
         backgroundSize: 'cover', 
         backgroundPosition: 'center',
+        height: height
       }} 
     >
         <section className="Hero--text">
@@ -25,6 +26,7 @@ Hero.defaultProps = {
   heading: '',
   text: '',
   imgSrcUrl: '',
+  height: '100vh'
 }
 
 export default Hero;
