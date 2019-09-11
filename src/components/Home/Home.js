@@ -92,7 +92,6 @@ import SizeContext from '../../SizeContext';
   render() {
   const {history} = this.props
   const { width } = this.context
-  console.log(width)
   const {testimonials, index, isFaded} = this.state
   return (
     <AbsoluteWrapper className='Home'>
@@ -119,14 +118,14 @@ import SizeContext from '../../SizeContext';
         >
           <section style={{ textAlign: 'center', height: '100%', width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '2%', color: 'white', zIndex: '1'}}>
             <h1>We Architect <span className='orange'>Business</span> Solutions</h1>
-            <h4>Enterprise & Product Strategy | Design | Development</h4>
+            <h4>Strategy | Design | Development</h4>
             <button className='button' onClick={() => history.push('/contact')}>Work With Us</button>
           </section>
         </ParallaxLayer>
         <ParallaxLayer
           factor={.25}
           offset={.96}
-          speed={-.21}
+          speed={ (width > 1399) ? -.3 : -.21}
           style={{
             display: 'flex',
             alignItems: 'center',
@@ -150,12 +149,12 @@ import SizeContext from '../../SizeContext';
           </section>
         </ParallaxLayer>
         <ParallaxLayer 
-          factor={(width > 1399) ? .69 : 1.87}
+          factor={(width > 1399) ? .75 : 1.87}
           offset={(width > 1399) ? 1 :1.5}
           speed={1.75}
           style={{zIndex:'2'}}
         >
-          <section className='Home--info' >
+          <ul className='Home--info' >
             <Card 
               heading='VALIDATE YOUR IDEA'
               text='Develop a solution that maximizes value for your customers and 
@@ -181,8 +180,10 @@ import SizeContext from '../../SizeContext';
             >
               <MdTrendingUp className='orange' size={80} />
             </Card>
-            <button className='button' type='button' role='navigation' onClick={() => history.push('/about-us')}>Learn More</button>
-          </section>
+            <div className="Home--button-container">
+              <button className='button' role='navigation' aria-label="navigate to about us page" onClick={() => history.push('/about-us')}>Learn More</button>
+            </div>
+          </ul>
         </ParallaxLayer>
         <ParallaxLayer
           factor={.1}

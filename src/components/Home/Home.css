@@ -37,8 +37,14 @@
   .Home--info {
     flex-direction: row;
     flex-wrap: wrap;
-    align-items: center;
+    align-items: space-evenly;
     justify-content: space-evenly;
-    width: 90%;
+    width: 80%;
+  }
+  .Home--button-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }

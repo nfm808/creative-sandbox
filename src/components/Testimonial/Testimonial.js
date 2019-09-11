@@ -31,7 +31,7 @@ const Testimonial = ({id, logo, alt, quote, person, title, industry, plusOne, mi
         <Divider border={'1px solid #f7941d'} className="fade transform" width={'10%'}/>
         <h5 className="Testimonial--person fade transform">{person} : {title}</h5>
         <h6 className="Testimonial--industry fade transform">Industry: {industry}</h6>
-        <button className="Testimonial--button" role='navigation' value="left" onClick={(e) => addFadeOutClass(minusOne, e.target.value)}>
+        <button aria-label="show more" className="Testimonial--button" value="left" onClick={(e) => addFadeOutClass(minusOne, e.target.value)}>
           <MdMoreHoriz color="#f7941d" size={20} />
         </button>
       </div>
